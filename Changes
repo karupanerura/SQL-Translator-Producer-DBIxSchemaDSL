@@ -2,5 +2,7 @@ Revision history for Perl extension SQL-Translator-Producer-DBIxSchemaDSL
 
 {{$NEXT}}
 
+0.01 2016-01-26T14:27:46Z
+
     - original version
 
