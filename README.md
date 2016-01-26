@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/karupanerura/SQL-Translator-Producer-DBIxSchemaDSL.svg?branch=master)](https://travis-ci.org/karupanerura/SQL-Translator-Producer-DBIxSchemaDSL)
 # NAME
 
 SQL::Translator::Producer::DBIxSchemaDSL - DBIX::Schema::DSL specific producer for SQL::Translator
