@@ -1,14 +1,43 @@
 # NAME
 
-SQL::Translator::Producer::DBIxSchemaDSL - It's new $module
+SQL::Translator::Producer::DBIxSchemaDSL - DBIX::Schema::DSL specific producer for SQL::Translator
 
 # SYNOPSIS
 
+    use SQL::Translator;
     use SQL::Translator::Producer::DBIxSchemaDSL;
+
+    my $t = SQL::Translator->new( parser => '...' );
+    $t->producer('DBIxSchemaDSL');
+    $t->translate;
 
 # DESCRIPTION
 
-SQL::Translator::Producer::DBIxSchemaDSL is ...
+This module will produce text output of the schema suitable for DBIx::Schema::DSL.
+
+# ARGUMENTS
+
+- `default_not_null`
+
+    Enables `default_not_null` in DSL.
+
+- `default_unsigned`
+
+    Enables `default_unsigned` in DSL.
+
+- `typemap`
+
+    Override type mapping from DBI type to DBIx::Schema::DSL type.
+
+    Example:
+
+        use DBI qw/:sql_types/;
+        use SQL::Translator;
+        use SQL::Translator::Producer::DBIx::Schema::DSL;
+
+        my $t = SQL::Translator->new( parser => '...' );
+        $t->producer('GoogleBigQuery', { typemap => { SQL_TINYINT() => 'integer' } });
+        $t->translate;
 
 # LICENSE
 
