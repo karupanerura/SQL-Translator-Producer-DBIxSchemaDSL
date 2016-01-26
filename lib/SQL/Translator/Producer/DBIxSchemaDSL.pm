@@ -231,6 +231,7 @@ sub _index_type {
 
 sub _index_options {
     my $index = shift;
+    return '' if not $index->type;
     return '' if $index->type eq 'UNIQUE';
     return '' if $index->type eq 'NORMAL';
     return sprintf q{, '%s'}, $index->type;
