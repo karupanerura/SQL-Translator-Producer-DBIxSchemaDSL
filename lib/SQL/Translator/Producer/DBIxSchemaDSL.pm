@@ -142,11 +142,15 @@ sub _field_options {
     my $list = exists $field->extra->{list} && $field->extra->{list};
     my $numeric = _is_numeric_data_type($field);
 
+    my $type = _field_type($field);
+    my $is_char = $type =~ /char$/;
+    my $is_decimal = $type eq 'decimal';
+
     my @options;
     push @options => _list($field)      if $list;
     push @options => 'signed'           if $numeric && !$unsigned && $DEFAULT_UNISIGNED;
     push @options => 'unsigned'         if $numeric && $unsigned && !$DEFAULT_UNISIGNED;
-    push @options => _size($field)      if !$numeric && !$list && $field->size;
+    push @options => _size($field)      if ($is_char || $is_decimal) && $field->size;
     push @options => 'null'             if $field->is_nullable && $DEFAULT_NOT_NULL;
     push @options => 'not_null'         if !$field->is_nullable && !$DEFAULT_NOT_NULL;
     push @options => _default($field)   if $field->default_value;

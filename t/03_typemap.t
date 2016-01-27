@@ -29,6 +29,7 @@ use DBIx::Schema::DSL;
 create_table author => columns {
     tinyint 'id', not_null, primary_key, auto_increment;
     varchar 'name', size => 255, unique;
+    text 'message', not_null;
 };
 
 create_table module => columns {

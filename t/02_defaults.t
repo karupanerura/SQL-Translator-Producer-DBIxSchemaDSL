@@ -29,6 +29,7 @@ default_unsigned;
 create_table author => columns {
     integer 'id', signed, not_null, primary_key, auto_increment;
     varchar 'name', size => 255, unique;
+    text 'message', not_null;
 };
 
 create_table module => columns {
@@ -70,6 +71,7 @@ default_not_null;
 create_table author => columns {
     integer 'id', primary_key, auto_increment;
     varchar 'name', size => 255, null, unique;
+    text 'message';
 };
 
 create_table module => columns {
@@ -112,6 +114,7 @@ default_not_null;
 create_table author => columns {
     integer 'id', signed, primary_key, auto_increment;
     varchar 'name', size => 255, null, unique;
+    text 'message';
 };
 
 create_table module => columns {

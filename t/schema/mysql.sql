@@ -6,6 +6,7 @@ SET foreign_key_checks=0;
 CREATE TABLE `author` (
   `id` INTEGER NOT NULL auto_increment,
   `name` VARCHAR(255) NULL,
+  `message` TEXT NOT NULL,
   UNIQUE `name_uniq` (`name`),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
