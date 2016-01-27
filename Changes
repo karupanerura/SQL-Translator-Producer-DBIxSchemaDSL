@@ -2,6 +2,12 @@ Revision history for Perl extension SQL-Translator-Producer-DBIxSchemaDSL
 
 {{$NEXT}}
 
+0.02 2016-01-27T04:00:25Z
+
+    - follow TEXT type
+    - should add `size` option for DECIMAL type
+    - added some test cases
+
 0.01 2016-01-26T14:27:46Z
 
     - original version
