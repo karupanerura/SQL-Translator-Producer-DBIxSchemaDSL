@@ -36,6 +36,8 @@ create_table module => columns {
     integer 'author_id';
 
     add_index author_id_idx => [qw/author_id/];
+
+    belongs_to 'author';
 };
 
 1;

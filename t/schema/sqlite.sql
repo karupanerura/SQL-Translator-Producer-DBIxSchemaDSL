@@ -17,7 +17,8 @@ CREATE UNIQUE INDEX name_uniq ON author (name);
 CREATE TABLE module (
   id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   name VARCHAR(255),
-  author_id INTEGER
+  author_id INTEGER,
+  FOREIGN KEY (author_id) REFERENCES author(id)
 );
 
 CREATE INDEX author_id_idx ON module (author_id);

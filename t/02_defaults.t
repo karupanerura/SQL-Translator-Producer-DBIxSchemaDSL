@@ -37,6 +37,8 @@ create_table module => columns {
     integer 'author_id', signed;
 
     add_index author_id_idx => [qw/author_id/];
+
+    belongs_to 'author';
 };
 
 1;
@@ -76,6 +78,8 @@ create_table module => columns {
     integer 'author_id', null;
 
     add_index author_id_idx => [qw/author_id/];
+
+    belongs_to 'author';
 };
 
 1;
@@ -116,6 +120,8 @@ create_table module => columns {
     integer 'author_id', signed, null;
 
     add_index author_id_idx => [qw/author_id/];
+
+    belongs_to 'author';
 };
 
 1;

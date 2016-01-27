@@ -18,6 +18,7 @@ CREATE TABLE `module` (
   `name` VARCHAR(255) NULL,
   `author_id` INTEGER NULL,
   INDEX `author_id_idx` (`author_id`),
+  FOREIGN KEY (`author_id`) REFERENCES `author` (`id`),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
