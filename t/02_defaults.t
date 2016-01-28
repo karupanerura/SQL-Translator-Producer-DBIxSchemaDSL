@@ -29,6 +29,7 @@ default_unsigned;
 create_table author => columns {
     integer 'id', signed, not_null, primary_key, auto_increment;
     varchar 'name', size => 255, unique;
+    tinyint 'age', signed, not_null, default => 0;
     text 'message', not_null;
 };
 
@@ -71,6 +72,7 @@ default_not_null;
 create_table author => columns {
     integer 'id', primary_key, auto_increment;
     varchar 'name', size => 255, null, unique;
+    tinyint 'age', default => 0;
     text 'message';
 };
 
@@ -114,6 +116,7 @@ default_not_null;
 create_table author => columns {
     integer 'id', signed, primary_key, auto_increment;
     varchar 'name', size => 255, null, unique;
+    tinyint 'age', signed, default => 0;
     text 'message';
 };
 

@@ -28,6 +28,7 @@ use DBIx::Schema::DSL;
 create_table author => columns {
     integer 'id', not_null, primary_key, auto_increment;
     varchar 'name', size => 255, unique;
+    tinyint 'age', not_null, default => 0;
     text 'message', not_null;
 };
 

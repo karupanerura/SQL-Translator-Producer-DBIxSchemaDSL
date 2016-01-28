@@ -153,7 +153,7 @@ sub _field_options {
     push @options => _size($field)      if ($is_char || $is_decimal) && $field->size;
     push @options => 'null'             if $field->is_nullable && $DEFAULT_NOT_NULL;
     push @options => 'not_null'         if !$field->is_nullable && !$DEFAULT_NOT_NULL;
-    push @options => _default($field)   if $field->default_value;
+    push @options => _default($field)   if defined $field->default_value;
     push @options => _on_update($field) if $on_update;
     push @options => 'primary_key'      if _field_is_single_primary_key($field);
     push @options => 'unique'           if _field_is_single_unique_key($field);
