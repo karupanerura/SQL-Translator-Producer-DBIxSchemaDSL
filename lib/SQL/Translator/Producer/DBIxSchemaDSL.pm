@@ -174,7 +174,7 @@ sub _field_is_single_unique_key {
     my $field = shift;
     for my $unique (grep { $_->type eq UNIQUE } $field->table->get_constraints) {
         my %field = map { $_ => 1 } $unique->field_names;
-        return 1 if $field{$field->name} && keys %field == 1;
+        return 1 if $field{$field->name} && keys %field == 1 && $unique->name eq "@{[$field->name]}_uniq";
     }
     return 0;
 }
@@ -245,7 +245,7 @@ sub _filter_constraint(;$) {# no critic
     $_ = shift if @_;
     return if $_->type eq NOT_NULL;
     return if $_->type eq PRIMARY_KEY && @{ $_->fields } == 1;
-    return if $_->type eq UNIQUE && @{ $_->fields } == 1;
+    return if $_->type eq UNIQUE && @{ $_->fields } == 1 && $_->name eq "@{[ $_->fields->[0] ]}_uniq";
     return 1;
 }
 
